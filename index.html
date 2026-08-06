@@ -1,1 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Energy | Empowering Sri Lanka</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* --- THEME ROOT VARIABLES --- */
+        :root {
+            /* Default Dark Theme Values (Matches your Dribbble image background style) */
+            --bg-gradient: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+            --text-main: #ffffff;
+            --text-muted: #e0e0e0;
+            --text-subtle: #909090;
+            --accent-green: #4caf50;
+            --accent-hover: #45a049;
+            --slider-bg: rgba(0, 0, 0, 0.5);
+            --slider-border: rgba(255, 255, 255, 0.1);
+            --caption-bg: rgba(0, 0, 0, 0.85);
+            --toggle-bg: rgba(255, 255, 255, 0.15);
+        }
+
+        [data-theme="light"] {
+            /* Light Theme Values */
+            --bg-gradient: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+            --text-main: #1a1a1a;
+            --text-muted: #424242;
+            --text-subtle: #757575;
+            --accent-green: #2e7d32; /* Slightly darker green for light background readability */
+            --accent-hover: #1b5e20;
+            --slider-bg: rgba(255, 255, 255, 0.8);
+            --slider-border: rgba(0, 0, 0, 0.1);
+            --caption-bg: rgba(255, 255, 255, 0.95);
+            --toggle-bg: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background: var(--bg-gradient), url('greenenergy.jpg') no-repeat center center/cover;
+            height: 100vh;
+            height: 100dvh;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        header {
+            padding: 30px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--accent-green);
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        /* --- THEME TOGGLE BUTTON --- */
+        .theme-toggle {
+            background: var(--toggle-bg);
+            border: 1px solid var(--slider-border);
+            color: var(--text-main);
+            padding: 10px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .theme-toggle:hover {
+            opacity: 0.9;
+        }
+
+        .theme-toggle i {
+            font-size: 16px;
+        }
+
+        main {
+            padding: 0 80px;
+            max-width: 900px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 44px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        h1 span {
+            color: var(--accent-green);
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .explore-text {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-green);
+            color: #ffffff;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 22px;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-hover);
+            box-shadow: 0 12px 25px rgba(76, 175, 80, 0.5);
+        }
+
+        /* --- SLIDER SECTION --- */
+        .slider-section {
+            width: 100%;
+            overflow: hidden;
+            background: var(--slider-bg);
+            padding: 15px 0;
+            border-top: 1px solid var(--slider-border);
+            border-bottom: 1px solid var(--slider-border);
+            flex-shrink: 0;
+        }
+
+        .slider-track {
+            display: flex;
+            width: calc(220px * 12);
+            animation: scroll 30s linear infinite;
+        }
+
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+
+        .slide {
+            width: 220px;
+            height: 130px;
+            padding: 0 8px;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            filter: grayscale(30%);
+            transition: filter 0.3s;
+        }
+
+        .slide img:hover {
+            filter: grayscale(0%);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 5px;
+            left: 12px;
+            right: 12px;
+            background: var(--caption-bg);
+            color: var(--text-main);
+            font-size: 11px;
+            padding: 4px 6px;
+            border-radius: 4px;
+            text-align: center;
+            pointer-events: none;
+            border: 1px solid var(--slider-border);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-220px * 6)); }
+        }
+
+        footer {
+            padding: 15px 80px;
+            font-size: 12px;
+            color: var(--text-subtle);
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 1024px) {
+            header, main, footer { padding-left: 40px; padding-right: 40px; }
+            h1 { font-size: 38px; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding-top: 20px; padding-bottom: 10px; }
+            header .logo { font-size: 24px; }
+            main { padding-left: 24px; padding-right: 24px; }
+            h1 { font-size: 28px; margin-bottom: 15px; }
+            p { font-size: 15px; margin-bottom: 20px; line-height: 1.5; }
+            .slide { width: 180px; height: 110px; }
+            .slider-track { width: calc(180px * 12); }
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-180px * 6)); }
+            }
+            footer { padding-top: 10px; padding-bottom: 10px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 24px; }
+            p { font-size: 14px; }
+            .icon-btn { width: 50px; height: 50px; font-size: 18px; }
+            .theme-toggle span { display: none; } /* Hide toggle text on tiny screens */
+            .theme-toggle { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Eco-<span>Energy</span></div>
+        <!-- Theme Toggle Controller Button -->
+        <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle display theme">
+            <i class="fas fa-moon" id="themeIcon"></i>
+            <span id="themeText">Dark Theme</span>
+        </button>
+    </header>
+
+    <main>
+        <h1>Sri Lanka is drowning. <span>We are drying out.</span> And time is running out.</h1>
+        <p>From unpredictable, devastating floods to prolonged droughts that crush our farmers, climate change is no longer a future threat to Sri Lanka—it is our current reality.
+          Our paradise island is vulnerable, but our greatest weakness is unawareness. Our motive is simple: complete climate literacy. We believe that by educating every citizen on the power of solar, wind, and hydro technologies, we can spark a green revolution. Knowledge is our first line of defense.</p>
+        
+        <div class="cta-container">
+            <span class="explore-text">Discover Renewable Energy Types</span>
+            <a href="education.html" class="icon-btn" aria-label="Learn more about renewable energy">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <section class="slider-section">
+        <div class="slider-track">
+            <!-- 6 Original Layouts -->
+            <div class="slide">
+                <img src="https://unsplash.com" alt="Flooding">
+                <div class="slide-caption">Severe Flash Floods</div>
+            </div>
+            <div class="slide">
+                <img src="https://unsplash.com" alt="Drought">
+                <div class="slide-caption">Prolonged Droughts</div>
+            </div>
+            <div class="slide">
+                <img src="https://unsplash.com" alt="Landslide">
+                <div class="slide-caption">Landslide Disasters</div>
+            </div>
+            <div class="slide">
 
