@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Energy | Learn Renewable Energy</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* --- SYNCED THEME ROOT VARIABLES --- */
+        :root {
+            --bg-gradient: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+            --text-main: #ffffff;
+            --text-muted: #e0e0e0;
+            --text-subtle: #909090;
+            --accent-green: #4caf50;
+            --accent-hover: #45a049;
+            --card-bg: rgba(255, 255, 255, 0.07);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --toggle-bg: rgba(255, 255, 255, 0.15);
+        }
+
+        [data-theme="light"] {
+            --bg-gradient: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+            --text-main: #1a1a1a;
+            --text-muted: #424242;
+            --text-subtle: #757575;
+            --accent-green: #2e7d32;
+            --accent-hover: #1b5e20;
+            --card-bg: rgba(0, 0, 0, 0.04);
+            --card-border: rgba(0, 0, 0, 0.08);
+            --toggle-bg: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background: var(--bg-gradient), url('greenenergy.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            min-height: 100dvh;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            padding: 30px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .back-home {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .back-home i {
+            color: var(--accent-green);
+            font-size: 18px;
+        }
+
+        .theme-toggle {
+            background: var(--toggle-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 10px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .theme-toggle:hover { opacity: 0.9; }
+
+        main {
+            padding: 0 80px;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .intro-block {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .intro-block h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .intro-block h1 span {
+            color: var(--accent-green);
+        }
+
+        .intro-block p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* --- 2x2 GRID CONTAINER FOR RENEWABLE TYPES --- */
+        .energy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .energy-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            height: 200px;
+            position: relative;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .card-header-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-header-title i {
+            font-size: 24px;
+            color: var(--accent-green);
+        }
+
+        .energy-card h2 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .info-tag {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .info-tag strong {
+            color: var(--accent-green);
+            display: block;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--card-border);
+            margin: 4px 0;
+        }
+
+        footer {
+            padding: 20px 80px;
+            font-size: 12px;
+            color: var(--text-subtle);
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* --- MOBILE LAYOUT ADJUSTMENTS --- */
+        @media (max-width: 1024px) {
+            header, main, footer { padding-left: 40px; padding-right: 40px; }
+            .energy-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding-top: 20px; padding-bottom: 20px; }
+            main { padding-left: 24px; padding-right: 24px; }
+            .intro-block h1 { font-size: 28px; }
+            .energy-grid { gap: 25px; }
+            footer { padding-top: 15px; padding-bottom: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .theme-toggle span { display: none; }
+            .theme-toggle { padding: 10px; }
+            .back-home span { display: none; }
+            .card-img-wrapper { height: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-home" aria-label="Go back to homepage">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Home</span>
+        </a>
+        <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle display theme">
+            <i class="fas fa-moon" id="themeIcon"></i>
+            <span id="themeText">Dark Theme</span>
+        </button>
+    </header>
+
+    <main>
+        <div class="intro-block">
+            <h1>Our Mission: <span>Total Energy Literacy</span></h1>
+            <p>To combat the severe effects of climate change across Sri Lanka, every single citizen needs to understand how alternative technologies operate. Explore the core pillars of renewable energy below to discover how we can transition our island away from traditional fossil fuel dependence.</p>
+        </div>
+
+        <section class="energy-grid">
+            <!-- 1. SOLAR POWER -->
+            <div class="energy-card">
+                <div class="card-img-wrapper">
+                    <img src="https://unsplash.com" alt="Solar Panels under the sun">
+                </div>
+                <div class="card-content">
+                    <div class="card-header-title">
+                        <i class="fas fa-solar-panel"></i>
+                        <h2>Solar Power</h2>
+                    </div>
+                    <p class="info-tag">
+                        <strong>How it battles climate change in SL:</strong> 
+                        Offsets coal usage at Norochcholai, drastically cutting down harmful greenhouse gas emissions and minimizing the intensity of toxic heatwaves hitting our dry zones.
+                    </p>
+                    <div class="divider"></div>
+                    <p class="info-tag">
+                        <strong>Sri Lankan implementation & locations:</strong> 
+                        Rapidly growing via industrial setups in Hambantota, floating solar trials on Maduru Oya reservoir, and the "Soorya Bala Sangramaya" rooftop network across suburban neighborhoods.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. WIND POWER -->
+            <div class="energy-card">
+                <div class="card-img-wrapper">
+                    <img src="https://unsplash.com" alt="Wind Turbines field">
+                </div>
+                <div class="card-content">
+                    <div class="card-header-title">
+                        <i class="fas fa-wind"></i>
+                        <h2>Wind Power</h2>
+                    </div>
+                    <p class="info-tag">
+                        <strong>How it battles climate change in SL:</strong> 
+                        Generates high-yield electricity completely emission-free, preserving our delicate coastal ecosystems and reducing the air pollution levels affecting island weather patterns.
+                    </p>
+                    <div class="divider"></div>
+                    <p class="info-tag">
+                        <strong>Sri Lankan implementation & locations:</strong> 
+                        Utilized heavily at the massive Thambapavani Wind Farm on the Mannar beachfront, alongside active wind turbine corridors stretching through Kalpitiya and Jaffna.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3. HYDROPOWER -->
+            <div class="energy-card">
