@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eco-Energy | Empowering Sri Lanka</title>
+    <!-- External stylesheet placeholder for Cloudflare hosting/security integration -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
+        /* --- GLOBAL RESET & TRANSITION ROUTINES --- */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Ensures padding & borders don't expand element widths */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Smooth transitions for theme swapping across layout modifications */
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
@@ -28,7 +31,7 @@
             --caption-bg: rgba(0, 0, 0, 0.85);
             --toggle-bg: rgba(255, 255, 255, 0.15);
         }
-
+        /* Overrides triggered when 'data-theme="light"' attribute is applied via JavaScript */
         [data-theme="light"] {
             /* Light Theme Values */
             --bg-gradient: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
@@ -43,23 +46,25 @@
             --toggle-bg: rgba(0, 0, 0, 0.1);
         }
 
+        /* --- MAIN VIEWPORT WRAPPER --- */
         body {
             background: var(--bg-gradient), url('greenenergy.jpg') no-repeat center center/cover;
             height: 100vh;
-            height: 100dvh;
+            height: 100dvh; /* dvh addresses mobile browser address bar resizing bugs */
             color: var(--text-main);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
+            justify-content: space-between; /* Spreads header, content, and footer vertically */
+            overflow: hidden; /* Lock window viewport from showing scrollbars */
         }
 
+        /* --- HEADER NAVIGATION LAYOUT --- */
         header {
             padding: 30px 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-shrink: 0;
+            flex-shrink: 0; /* Prevents container from squeezing when space gets tight */
         }
 
         .logo {
@@ -96,13 +101,14 @@
             font-size: 16px;
         }
 
+        /* --- MAIN HERO BODY CONTROLLER --- */
         main {
             padding: 0 80px;
             max-width: 900px;
-            flex-grow: 1;
+            flex-grow: 1; /* Instructs main component to absorb all remaining vertical space */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* Horizontally centers content alignment within the section */
         }
 
         h1 {
@@ -138,6 +144,7 @@
             font-weight: 600;
         }
 
+        /* --- PRIMARY HERO BUTTON --- */
         .icon-btn {
             display: inline-flex;
             align-items: center;
@@ -154,9 +161,9 @@
         }
 
         .icon-btn:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px); /* Lift element off base axis on hover */
             background-color: var(--accent-hover);
-            box-shadow: 0 12px 25px rgba(76, 175, 80, 0.5);
+            box-shadow: 0 12px 25px rgba(76, 175, 80, 0.5); /* Expands lighting bloom */
         }
 
         /* --- SLIDER SECTION --- */
