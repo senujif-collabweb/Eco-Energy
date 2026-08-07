@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eco-Energy | Learn Renewable Energy</title>
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -41,6 +41,7 @@
 
         body {
             background: var(--bg-gradient), url('greenenergy.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
             min-height: 100vh;
             min-height: 100dvh;
             color: var(--text-main);
@@ -87,16 +88,18 @@
         }
 
         .theme-toggle:hover { opacity: 0.9; }
+        .theme-toggle:focus-visible,
+        .back-home:focus-visible {
+            outline: 2px solid var(--accent-green);
+            outline-offset: 3px;
+        }
 
         main {
-            padding: 0 80px;
+            padding: 40px 80px;
             width: 100%;
             max-width: 1200px;
             margin: auto;
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .intro-block {
@@ -151,6 +154,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .card-content {
@@ -226,6 +230,10 @@
             .back-home span { display: none; }
             .card-img-wrapper { height: 160px; }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; }
+        }
     </style>
 </head>
 <body>
@@ -251,7 +259,7 @@
             <!-- 1. SOLAR POWER -->
             <div class="energy-card">
                 <div class="card-img-wrapper">
-                    <img src="https://unsplash.com" alt="Solar Panels under the sun">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Solar Panels under the sun">
                 </div>
                 <div class="card-content">
                     <div class="card-header-title">
@@ -259,12 +267,12 @@
                         <h2>Solar Power</h2>
                     </div>
                     <p class="info-tag">
-                        <strong>How it battles climate change in SL:</strong> 
+                        <strong>How it battles climate change in SL:</strong>
                         Offsets coal usage at Norochcholai, drastically cutting down harmful greenhouse gas emissions and minimizing the intensity of toxic heatwaves hitting our dry zones.
                     </p>
                     <div class="divider"></div>
                     <p class="info-tag">
-                        <strong>Sri Lankan implementation & locations:</strong> 
+                        <strong>Sri Lankan implementation & locations:</strong>
                         Rapidly growing via industrial setups in Hambantota, floating solar trials on Maduru Oya reservoir, and the "Soorya Bala Sangramaya" rooftop network across suburban neighborhoods.
                     </p>
                 </div>
@@ -273,7 +281,7 @@
             <!-- 2. WIND POWER -->
             <div class="energy-card">
                 <div class="card-img-wrapper">
-                    <img src="https://unsplash.com" alt="Wind Turbines field">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=80" alt="Wind Turbines field">
                 </div>
                 <div class="card-content">
                     <div class="card-header-title">
@@ -281,12 +289,12 @@
                         <h2>Wind Power</h2>
                     </div>
                     <p class="info-tag">
-                        <strong>How it battles climate change in SL:</strong> 
+                        <strong>How it battles climate change in SL:</strong>
                         Generates high-yield electricity completely emission-free, preserving our delicate coastal ecosystems and reducing the air pollution levels affecting island weather patterns.
                     </p>
                     <div class="divider"></div>
                     <p class="info-tag">
-                        <strong>Sri Lankan implementation & locations:</strong> 
+                        <strong>Sri Lankan implementation & locations:</strong>
                         Utilized heavily at the massive Thambapavani Wind Farm on the Mannar beachfront, alongside active wind turbine corridors stretching through Kalpitiya and Jaffna.
                     </p>
                 </div>
@@ -294,3 +302,85 @@
 
             <!-- 3. HYDROPOWER -->
             <div class="energy-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=800&q=80" alt="Hydroelectric dam releasing water">
+                </div>
+                <div class="card-content">
+                    <div class="card-header-title">
+                        <i class="fas fa-water"></i>
+                        <h2>Hydropower</h2>
+                    </div>
+                    <p class="info-tag">
+                        <strong>How it battles climate change in SL:</strong>
+                        Supplies a steady, low-emission baseload of electricity, reducing reliance on emergency diesel power generation during dry-season energy shortfalls.
+                    </p>
+                    <div class="divider"></div>
+                    <p class="info-tag">
+                        <strong>Sri Lankan implementation & locations:</strong>
+                        The backbone of the grid for decades, led by the Mahaweli hydro complex including Victoria, Kotmale, and Randenigala dams, along with the Laxapana power stations in the central highlands.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4. BIOMASS -->
+            <div class="energy-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=800&q=80" alt="Agricultural crop field used for biomass">
+                </div>
+                <div class="card-content">
+                    <div class="card-header-title">
+                        <i class="fas fa-leaf"></i>
+                        <h2>Biomass</h2>
+                    </div>
+                    <p class="info-tag">
+                        <strong>How it battles climate change in SL:</strong>
+                        Converts agricultural and industrial waste into power instead of letting it rot or burn openly, cutting methane release and reducing crop-residue burning in farming regions.
+                    </p>
+                    <div class="divider"></div>
+                    <p class="info-tag">
+                        <strong>Sri Lankan implementation & locations:</strong>
+                        Dendro-power plants running on fast-growing Gliricidia in areas like Walapane and Pelawatte, plus rice-husk and sugarcane-waste power projects supporting rural estates.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Eco-Energy. Built to support renewable energy literacy in Sri Lanka.
+    </footer>
+
+    <script>
+        (function () {
+            const root = document.documentElement;
+            const btn = document.getElementById('themeToggleBtn');
+            const icon = document.getElementById('themeIcon');
+            const label = document.getElementById('themeText');
+
+            function applyTheme(theme) {
+                if (theme === 'light') {
+                    root.setAttribute('data-theme', 'light');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    label.textContent = 'Light Theme';
+                } else {
+                    root.removeAttribute('data-theme');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    label.textContent = 'Dark Theme';
+                }
+                localStorage.setItem('eco-energy-theme', theme);
+            }
+
+            const saved = localStorage.getItem('eco-energy-theme') || 'dark';
+            applyTheme(saved);
+
+            btn.addEventListener('click', function () {
+                const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                applyTheme(current === 'light' ? 'dark' : 'light');
+            });
+        })();
+    </script>
+
+</body>
+</html>
